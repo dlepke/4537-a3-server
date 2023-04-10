@@ -114,7 +114,12 @@ app.post("/login", async (req, res) => {
         jwt_secret
       );
 
-      res.cookie("auth-token-access", token, { maxAge: MAX_AGE });
+      res.cookie("auth-token-access", token, {
+        maxAge: MAX_AGE,
+        sameSite: "none",
+        httpOnly: false,
+        secure: "false",
+      });
 
       res.json({ success: true, admin: true, username });
     } else if (auth) {
@@ -123,7 +128,12 @@ app.post("/login", async (req, res) => {
         jwt_secret
       );
 
-      res.cookie("auth-token-access", token, { maxAge: MAX_AGE });
+      res.cookie("auth-token-access", token, {
+        maxAge: MAX_AGE,
+        sameSite: "none",
+        httpOnly: false,
+        secure: "false",
+      });
 
       res.json({ success: true, admin: false, username });
     } else {

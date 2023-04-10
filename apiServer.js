@@ -210,6 +210,6 @@ app.get("*", (req, res) => {
   logError(404, req.url);
 });
 
-app.listen(8000, () => {
+app.listen(process.env.PORT, () => {
   console.log("Listening on port 8000");
 });

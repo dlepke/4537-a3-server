@@ -117,7 +117,7 @@ app.post("/login", async (req, res) => {
       res.cookie("auth-token-access", token, {
         maxAge: MAX_AGE,
         sameSite: "none",
-        httpOnly: false,
+        httpOnly: true,
         secure: "false",
       });
 
@@ -131,7 +131,7 @@ app.post("/login", async (req, res) => {
       res.cookie("auth-token-access", token, {
         maxAge: MAX_AGE,
         sameSite: "none",
-        httpOnly: false,
+        httpOnly: true,
         secure: "false",
       });
 

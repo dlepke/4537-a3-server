@@ -163,7 +163,11 @@ async function login(username, password) {
 }
 
 app.get("/logout", (req, res) => {
-  res.cookie("auth-token-access", "");
+  res.cookie("auth-token-access", "", {
+    sameSite: "none",
+    httpOnly: true,
+    secure: "false",
+  });
   res.json({ success: true });
 });
 

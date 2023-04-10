@@ -76,6 +76,10 @@ db.on("open", async () => {
   Error = mongoose.model("error", errorSchema);
 });
 
+app.get('/', (req, res) => {
+  res.sendStatus(200);
+});
+
 app.post("/login", async (req, res) => {
   if (req.verifiedToken) {
     res.json(req.verifiedToken);

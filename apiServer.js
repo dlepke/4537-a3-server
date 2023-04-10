@@ -20,16 +20,26 @@ const app = express();
 app.use(
   cors({
     exposedHeaders: ["auth-token-access", "auth-token-refresh"],
-    origin: true,
+    origin:
+      "https://64339b887e2e523c7b0bbfa5--super-sprinkles-343903.netlify.app",
     credentials: true,
   })
 );
 
 app.use(function (req, res, next) {
-	res.header("Access-Control-Allow-Origin", "https://64339b887e2e523c7b0bbfa5--super-sprinkles-343903.netlify.app");
-	res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
-	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, Cookie");
-	next();
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://64339b887e2e523c7b0bbfa5--super-sprinkles-343903.netlify.app"
+  );
+  res.header(
+    "Access-Control-Allow-Methods",
+    "GET,HEAD,OPTIONS,POST,PUT,DELETE"
+  );
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization, Cookie"
+  );
+  next();
 });
 
 app.use(express.urlencoded({ extended: true }));
@@ -83,7 +93,7 @@ db.on("open", async () => {
   Error = mongoose.model("error", errorSchema);
 });
 
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   res.sendStatus(200);
 });
 
